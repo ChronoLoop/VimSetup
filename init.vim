@@ -3,6 +3,9 @@ Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'preservim/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'joshdick/onedark.vim'
@@ -25,6 +28,7 @@ set smartindent
 set mouse=a
 set clipboard=unnamedplus
 set list
+set encoding=UTF-8
 
 colorscheme onedark
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
