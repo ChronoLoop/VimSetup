@@ -12,6 +12,8 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'joshdick/onedark.vim'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
+Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
+
 call plug#end()
 
 map <silent> <C-n> :NERDTreeFocus<CR>   " ctrl+shift
@@ -32,6 +34,18 @@ set mouse=a
 set clipboard=unnamedplus
 set list
 set encoding=UTF-8
+
+" ------COC SETTINGS------
+" prettier command for coc
+let g:coc_global_extensions = [
+  \ 'coc-snippets',
+  \ 'coc-pairs',
+  \ 'coc-tsserver',
+  \ 'coc-prettier', 
+  \ 'coc-json',
+  \ 'coc-css',
+  \ 'coc-html'
+  \ ]
 
 colorscheme onedark
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
