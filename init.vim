@@ -1,4 +1,5 @@
 call plug#begin('~/.config/nvim/plugged')
+
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'preservim/nerdtree'
@@ -9,6 +10,8 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'joshdick/onedark.vim'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+
 call plug#end()
 
 map <silent> <C-n> :NERDTreeFocus<CR>   " ctrl+shift
