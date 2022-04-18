@@ -17,5 +17,8 @@
     "prettier.semi": true,
     "prettier.singleQuote": true,
     "prettier.trailingComma": "es5",
-    "snippets.ultisnips.enable": false
+    "snippets.userSnippetsDirectory": "~/.config/nvim/snips",
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    }
 }

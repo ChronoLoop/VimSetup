@@ -46,7 +46,7 @@ set shortmess+=c
 set signcolumn=yes
 
 " ------ NERDTree SETTINGS -------
-inoremap jk <ESC>
+inoremap <C-[> <ESC>
 nmap <C-n> :NERDTreeToggle<CR>
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
