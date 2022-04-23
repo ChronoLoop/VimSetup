@@ -13,6 +13,8 @@ Plug 'joshdick/onedark.vim'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'vim-airline/vim-airline'
+Plug 'Yggdroot/indentLine'
+Plug 'tpope/vim-surround'
 
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 
