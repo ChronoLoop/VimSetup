@@ -3,7 +3,6 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'preservim/nerdtree'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -15,6 +14,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'vim-airline/vim-airline'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-surround'
+Plug 'airblade/vim-gitgutter'
 
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 
@@ -52,14 +52,16 @@ set signcolumn=yes
 " ------ Custom Keybindings -------
 "Copy to system clipboard (this is for WSL)
 vmap <C-y> :w !clip.exe<CR><CR>
-"Paste from system clipboard
-nmap <C-p> "+p
+
+" FZF
+nmap <C-p> :FZF<CR>
 
 " ------ NERDTree SETTINGS -------
 inoremap <C-[> <ESC>
 nmap <C-n> :NERDTreeToggle<CR>
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
+nmap <leader>r :NERDTreeFind<CR>
 
 "open NERDTree automatically
 "autocmd StdinReadPre * let s:std_in=1
