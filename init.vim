@@ -49,13 +49,19 @@ set shortmess+=c
 " always show signcolumns
 set signcolumn=yes
 
+" ------ Custom Keybindings -------
+"Copy to system clipboard (this is for WSL)
+vmap <C-y> :w !clip.exe<CR><CR>
+"Paste from system clipboard
+nmap <C-p> "+p
+
 " ------ NERDTree SETTINGS -------
 inoremap <C-[> <ESC>
 nmap <C-n> :NERDTreeToggle<CR>
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
 
-" open NERDTree automatically
+"open NERDTree automatically
 "autocmd StdinReadPre * let s:std_in=1
 "autocmd VimEnter * NERDTree
 
