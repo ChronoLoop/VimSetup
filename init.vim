@@ -15,6 +15,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 
