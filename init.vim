@@ -1,6 +1,5 @@
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
