@@ -15,6 +15,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 
