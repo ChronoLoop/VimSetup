@@ -20,5 +20,12 @@
     "snippets.userSnippetsDirectory": "~/.config/nvim/snips",
     "emmet.includeLanguages": {
         "javascript": "javascriptreact"
+    },
+    "languageserver": {
+        "golang": {
+            "command": "gopls",
+            "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+            "filetypes": ["go"]
+        }
     }
 }
