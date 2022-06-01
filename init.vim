@@ -58,7 +58,7 @@ vmap <C-y> :w !clip.exe<CR><CR>
 nmap <C-p> :FZF<CR>
 
 " Toggle relative line number
-nmap <C-L><C-L> :set invrelativenumber<CR>
+nmap <C-S><C-S> :set invrelativenumber<CR>
 
 " ------ NERDTree SETTINGS -------
 inoremap <C-[> <ESC>
