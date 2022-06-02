@@ -7,7 +7,7 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'joshdick/onedark.vim'
+Plug 'navarasu/onedark.nvim'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'vim-airline/vim-airline'
