@@ -39,6 +39,7 @@ set mouse=a
 set clipboard=unnamedplus
 set list
 set encoding=UTF-8
+set invlist
 
 " if hidden is not set, TextEdit might fail.
 set hidden " Some servers have issues with backup files, see #649 set nobackup set nowritebackup " Better display for messages set cmdheight=2 " You will have bad experience for diagnostic messages when it's default 4000.
