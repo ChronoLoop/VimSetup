@@ -11,6 +11,8 @@ Plug 'navarasu/onedark.nvim'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
@@ -41,6 +43,7 @@ set clipboard=unnamedplus
 set list
 set encoding=UTF-8
 set invlist
+set showtabline=2
 
 " if hidden is not set, TextEdit might fail.
 set hidden " Some servers have issues with backup files, see #649 set nobackup set nowritebackup " Better display for messages set cmdheight=2 " You will have bad experience for diagnostic messages when it's default 4000.
@@ -61,6 +64,16 @@ nmap <C-p> :FZF<CR>
 
 " Toggle relative line number
 nmap <C-S><C-S> :set invrelativenumber<CR>
+
+" Theme
+colorscheme onedark
+let g:airline_theme='onedark'
+
+" BufferLine
+set termguicolors
+lua << EOF
+require("bufferline").setup{}
+EOF
 
 " ------ NERDTree SETTINGS -------
 inoremap <C-[> <ESC>
@@ -103,7 +116,6 @@ let g:coc_global_extensions = [
   \ 'coc-emmet'
   \ ]
 
-colorscheme onedark
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
 "(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
