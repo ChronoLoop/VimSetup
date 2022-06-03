@@ -16,6 +16,7 @@ Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'junegunn/fzf.vim'
 
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 
@@ -98,7 +99,8 @@ let g:coc_global_extensions = [
   \ 'coc-prettier', 
   \ 'coc-json',
   \ 'coc-css',
-  \ 'coc-html'
+  \ 'coc-html',
+  \ 'coc-emmet'
   \ ]
 
 colorscheme onedark
