@@ -27,5 +27,6 @@
             "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
             "filetypes": ["go"]
         }
-    }
+    },
+    "diagnostic.virtualText": true
 }
