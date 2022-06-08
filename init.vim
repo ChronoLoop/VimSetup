@@ -72,7 +72,11 @@ let g:airline_theme='onedark'
 " BufferLine
 set termguicolors
 lua << EOF
-require("bufferline").setup{}
+require("bufferline").setup{
+    options = {
+        mode = "tabs"
+    }
+}
 EOF
 
 " ------ NERDTree SETTINGS -------
