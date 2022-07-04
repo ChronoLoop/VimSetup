@@ -4,7 +4,7 @@ local lspconfig = require 'lspconfig'
 vim.diagnostic.config({
     underline = { severity_limit = "Error" },
     signs = true,
-    update_in_insert = false,
+    update_in_insert = true,
 })
 
 -- Add border like lspsaga
@@ -90,7 +90,6 @@ lspconfig.cssls.setup(default_config)
 lspconfig.dockerls.setup(default_config)
 lspconfig.html.setup(default_config)
 lspconfig.jsonls.setup(default_config)
-lspconfig.tsserver.setup(default_config)
 lspconfig.vimls.setup(default_config)
 lspconfig.yamlls.setup(default_config)
 
@@ -138,7 +137,8 @@ lspconfig.tsserver.setup {
             organize_imports,
             description = "Organize Imports"
         }
-    }
+    },
+    filetype = { 'typescript', 'typescriptreact', 'typescript.tsx' }
 }
 
 lspconfig.gopls.setup(default_config, {

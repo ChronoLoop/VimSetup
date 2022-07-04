@@ -3,6 +3,7 @@ vim.opt.smartcase = true
 vim.opt.hlsearch = true
 vim.opt.errorbells = false
 vim.opt.smartindent = true
+vim.opt.autoindent = true
 vim.opt.hidden = true
 vim.opt.signcolumn = "yes"
 vim.opt.showmode = false
@@ -36,7 +37,5 @@ vim.opt.relativenumber = true
 local colorscheme_cmd = 'colorscheme onedark'
 local success, err = pcall(vim.cmd, colorscheme_cmd)
 if not success then
-  vim.api.nvim_err_writeln(err)
+    vim.api.nvim_err_writeln(err)
 end
-
-
