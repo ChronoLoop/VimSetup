@@ -1,3 +1,19 @@
+-- ====================================================================================
+-- Initialize
+-- ====================================================================================
+
+vim.g.mapleader = ' '
+
+-- Enable provider for only python3 and node
+vim.g.python3_host_prog = vim.fn.exepath('python3')
+vim.g.loaded_python_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
+
+-- ====================================================================================
+-- Options
+-- ====================================================================================
+
 vim.opt.number = true
 vim.opt.smartcase = true
 vim.opt.hlsearch = true
@@ -6,8 +22,6 @@ vim.opt.smartindent = true
 vim.opt.autoindent = true
 vim.opt.hidden = true
 vim.opt.signcolumn = "yes"
-vim.opt.showmode = false
-vim.opt.swapfile = false
 vim.opt.backup = false
 
 vim.opt.clipboard = 'unnamedplus'

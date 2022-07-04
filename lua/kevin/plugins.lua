@@ -16,11 +16,11 @@ packer.startup(function(use)
     use 'windwp/nvim-autopairs'
     use 'windwp/nvim-ts-autotag'
     use 'airblade/vim-gitgutter'
+    use 'jose-elias-alvarez/null-ls.nvim'
 
     -- LSP
     use 'neovim/nvim-lspconfig'
     use 'creativenull/efmls-configs-nvim'
-    use 'jose-elias-alvarez/null-ls.nvim'
 
     -- Autocompletion and Snippets
     use { 'hrsh7th/vim-vsnip', requires = {
@@ -38,7 +38,6 @@ packer.startup(function(use)
     use 'kyazdani42/nvim-web-devicons'
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use 'tiagofumo/vim-nerdtree-syntax-highlight'
-    use 'Yggdroot/indentline'
     use 'navarasu/onedark.nvim'
     use { 'hoob3rt/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
 end)
