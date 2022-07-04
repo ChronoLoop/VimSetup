@@ -117,7 +117,7 @@ null_ls.setup {
 }
 
 -- Lua language server
-local sumneko_root_path = os.getenv("HOME") .. '/lua-language-server'
+local sumneko_root_path = os.getenv("HOME") .. '/.local/share/lua-language-server'
 local sumneko_binary = sumneko_root_path .. '/bin/lua-language-server'
 
 lspconfig.sumneko_lua.setup(vim.tbl_extend('force', default_config, {
