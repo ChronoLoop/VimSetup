@@ -15,6 +15,7 @@ packer.startup(function(use)
     use 'mattn/emmet-vim'
     use 'windwp/nvim-autopairs'
     use 'windwp/nvim-ts-autotag'
+    use 'airblade/vim-gitgutter'
 
     -- LSP
     use 'neovim/nvim-lspconfig'

@@ -4,7 +4,7 @@ local lspconfig = require 'lspconfig'
 vim.diagnostic.config({
     underline = { severity_limit = "Error" },
     signs = true,
-    update_in_insert = true,
+    update_in_insert = false,
 })
 
 -- Add border like lspsaga
