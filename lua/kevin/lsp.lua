@@ -61,12 +61,20 @@ local function on_attach(client, bufnr)
         string.format('<cmd>lua vim.diagnostic.open_float(%d, %s)<CR>', bufnr, diag_opts)
     )
     -- disable formatting from tsserver
-    if client.name == 'tsserver' then
+    if client.name == 'tsserver'
+        or client.name == 'jsonls'
+    then
         client.resolved_capabilities.document_formatting = false
     end
 
-    if client.name == 'jsonls' then
-        client.resolved_capabilities.document_formatting = false
+    if client.name == 'gopls' then
+        vim.opt.expandtab = false
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            pattern = { "*.go" },
+            callback = function()
+                vim.lsp.buf.formatting_sync()
+            end,
+        })
     end
 end
 
@@ -156,14 +164,4 @@ lspconfig.tsserver.setup {
     filetype = { 'typescript', 'typescriptreact', 'typescript.tsx' }
 }
 
-lspconfig.gopls.setup(default_config, {
-    cmd = { "gopls", "serve" },
-    settings = {
-        gopls = {
-            analyses = {
-                unusedparams = true,
-            },
-            staticcheck = true,
-        },
-    },
-})
+lspconfig.gopls.setup(default_config)
