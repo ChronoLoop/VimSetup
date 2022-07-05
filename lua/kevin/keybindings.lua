@@ -15,6 +15,7 @@ inoremap('<C-s>', '<Esc>:w<CR>a')
 
 nnoremap('<C-n>', ':NERDTreeToggle<CR>')
 nnoremap('<leader>r', ':NERDTreeFind<CR>')
+nnoremap('<leader>g', ':Git<CR>')
 
 nnoremap('<C-j>', '<C-w>j')
 nnoremap('<C-h>', '<C-w>h')

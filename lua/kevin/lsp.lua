@@ -50,7 +50,7 @@ local function on_attach(client, bufnr)
 
     -- Replacement for lspsaga
     lsp_map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
-    lsp_map('n', '<c-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
+    lsp_map('n', '<leader>sh', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
     lsp_map('n', '<leader>af', '<cmd>lua vim.lsp.buf.code_action()<CR>')
     lsp_map('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
 
