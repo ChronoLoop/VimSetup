@@ -1,5 +1,5 @@
 require('lualine').setup{
-    options = { theme  = 'nightfly' },
+    options = { theme  = 'nightfly', section_separators = '', component_separators = '' },
     sections = {
         lualine_c = {
             {
