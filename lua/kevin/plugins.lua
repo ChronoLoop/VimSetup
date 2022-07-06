@@ -7,7 +7,12 @@ packer.startup(function(use)
 
     -- Core
     use 'wbthomason/packer.nvim'
-    use 'preservim/nerdtree'
+    use {
+        'kyazdani42/nvim-tree.lua',
+        requires = {
+            'kyazdani42/nvim-web-devicons', -- optional, for file icons
+        },
+    }
     use 'tpope/vim-fugitive'
     use 'tpope/vim-surround'
     use 'tpope/vim-commentary'
@@ -37,7 +42,6 @@ packer.startup(function(use)
     use 'ryanoasis/vim-devicons'
     use 'kyazdani42/nvim-web-devicons'
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-    use 'tiagofumo/vim-nerdtree-syntax-highlight'
     use 'navarasu/onedark.nvim'
     use { 'hoob3rt/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
     use 'lukas-reineke/indent-blankline.nvim'

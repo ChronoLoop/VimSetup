@@ -13,8 +13,8 @@ nnoremap('<C-s>', ':w<CR>')
 nnoremap('<C-s>', ':w<CR>')
 inoremap('<C-s>', '<Esc>:w<CR>a')
 
-nnoremap('<C-n>', ':NERDTreeToggle<CR>')
-nnoremap('<leader>r', ':NERDTreeFind<CR>')
+nnoremap('<C-n>', ':NvimTreeToggle<CR>')
+nnoremap('<leader>r', ':NvimTreeFindFile<CR>')
 nnoremap('<leader>g', ':Git<CR>')
 
 nnoremap('<C-j>', '<C-w>j')
