@@ -125,7 +125,9 @@ null_ls.setup {
 }
 
 local lsp_installer = require("nvim-lsp-installer")
-lsp_installer.setup {} --make sure to :LspInstall
+lsp_installer.setup {
+    ensure_installed = {'sumneko_lua'}
+}
 
 -- Lua language server
 lspconfig.sumneko_lua.setup(vim.tbl_extend('force', default_config, {
