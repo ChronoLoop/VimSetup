@@ -44,7 +44,7 @@ local function on_attach(client, bufnr)
     lsp_map('n', 'gw', '<cmd>lua vim.lsp.buf.document_symbol()<CR>')
     lsp_map('n', 'gW', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>')
     lsp_map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
-    lsp_map('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
+    lsp_map('n', 'gy', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
     lsp_map('n', '<leader>le', '<cmd>lua vim.diagnostic.setloclist()<CR>')
     lsp_map('n', '<leader>p', '<cmd>lua vim.lsp.buf.formatting()<CR>')
 

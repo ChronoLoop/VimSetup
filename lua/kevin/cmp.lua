@@ -1,11 +1,5 @@
 local cmp = require 'cmp'
 local lspkind = require 'lspkind'
--- UltiSnips
--- vim.cmd 'augroup ultisnips_user_events'
--- vim.cmd 'au!'
--- vim.cmd 'au FileType javascriptreact UltiSnipsAddFiletypes javascript'
--- vim.cmd 'au FileType typescriptreact UltiSnipsAddFiletypes typescript'
--- vim.cmd 'augroup END'
 
 -- vsnip
 vim.g.vsnip_filetypes = {
@@ -17,7 +11,6 @@ vim.g.vsnip_filetypes = {
 cmp.setup {
     snippet = {
         expand = function(args)
-            -- vim.fn["UltiSnips#Anon"](args.body)
             vim.fn['vsnip#anonymous'](args.body)
         end,
     },
@@ -32,7 +25,6 @@ cmp.setup {
     -- You should specify your *installed* sources.
     sources = {
         { name = 'nvim_lsp' },
-        -- { name = 'ultisnips' },
         { name = 'vsnip' },
     },
 
@@ -43,7 +35,6 @@ cmp.setup {
             before = function(entry, item)
                 item.menu = ({
                     nvim_lsp = '[lsp]',
-                    -- ultisnips = '[ultisnips]',
                     vsnip = '[vsnip]',
                 })[entry.source.name]
 
