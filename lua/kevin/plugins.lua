@@ -40,4 +40,6 @@ packer.startup(function(use)
     use 'tiagofumo/vim-nerdtree-syntax-highlight'
     use 'navarasu/onedark.nvim'
     use { 'hoob3rt/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
+    use 'lukas-reineke/indent-blankline.nvim'
+    use 'onsails/lspkind.nvim'
 end)

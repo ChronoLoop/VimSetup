@@ -23,6 +23,7 @@ vim.opt.hidden = true
 vim.opt.signcolumn = "yes"
 vim.opt.backup = false
 vim.opt.updatetime = 300
+vim.opt.wrap = false
 
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.mouse = 'a'

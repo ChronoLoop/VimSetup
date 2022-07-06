@@ -1,5 +1,5 @@
 local cmp = require 'cmp'
-
+local lspkind = require 'lspkind'
 -- UltiSnips
 -- vim.cmd 'augroup ultisnips_user_events'
 -- vim.cmd 'au!'
@@ -37,14 +37,20 @@ cmp.setup {
     },
 
     formatting = {
-        format = function(entry, item)
-            item.menu = ({
-                nvim_lsp = '[lsp]',
-                -- ultisnips = '[ultisnips]',
-                vsnip = '[vsnip]',
-            })[entry.source.name]
+        format = lspkind.cmp_format({
+            mode = 'symbol', -- show only symbol annotations
+            maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+            before = function(entry, item)
+                item.menu = ({
+                    nvim_lsp = '[lsp]',
+                    -- ultisnips = '[ultisnips]',
+                    vsnip = '[vsnip]',
+                })[entry.source.name]
 
-            return item
-        end,
+                return item
+            end,
+        })
+
+
     },
 }
