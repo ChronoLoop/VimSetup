@@ -69,13 +69,13 @@ local function on_attach(client, bufnr)
 
     if client.name == 'gopls' then
         vim.opt_local.expandtab = false
-        vim.api.nvim_create_autocmd("BufWritePre", {
-            pattern = { "*.go" },
-            callback = function()
-                vim.lsp.buf.formatting_sync()
-            end,
-        })
     end
+
+    vim.api.nvim_create_autocmd("BufWritePre", {
+        callback = function()
+            vim.lsp.buf.formatting_sync()
+        end,
+    })
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -126,7 +126,7 @@ null_ls.setup {
 
 local lsp_installer = require("nvim-lsp-installer")
 lsp_installer.setup {
-    ensure_installed = {'sumneko_lua'}
+    ensure_installed = { 'sumneko_lua' }
 }
 
 -- Lua language server
