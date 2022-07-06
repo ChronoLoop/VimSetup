@@ -124,12 +124,11 @@ null_ls.setup {
     end,
 }
 
--- Lua language server
-local sumneko_root_path = os.getenv("HOME") .. '/.local/share/lua-language-server'
-local sumneko_binary = sumneko_root_path .. '/bin/lua-language-server'
+local lsp_installer = require("nvim-lsp-installer")
+lsp_installer.setup {} --make sure to :LspInstall
 
+-- Lua language server
 lspconfig.sumneko_lua.setup(vim.tbl_extend('force', default_config, {
-    cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
     settings = {
         Lua = {
             runtime = {

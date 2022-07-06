@@ -26,6 +26,7 @@ packer.startup(function(use)
     -- LSP
     use 'neovim/nvim-lspconfig'
     use 'creativenull/efmls-configs-nvim'
+    use 'williamboman/nvim-lsp-installer'
 
     -- Autocompletion and Snippets
     use { 'hrsh7th/vim-vsnip', requires = {
