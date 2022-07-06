@@ -68,7 +68,7 @@ local function on_attach(client, bufnr)
     end
 
     if client.name == 'gopls' then
-        vim.opt.expandtab = false
+        vim.opt_local.expandtab = false
         vim.api.nvim_create_autocmd("BufWritePre", {
             pattern = { "*.go" },
             callback = function()
