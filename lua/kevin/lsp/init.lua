@@ -1,3 +1,4 @@
+require 'kevin.lsp.null-ls'
 local lspconfig = require 'lspconfig'
 
 -- Global diagnostic config
@@ -92,77 +93,30 @@ local default_config = {
     capabilities = capabilities,
 }
 
--- Language Servers
-lspconfig.bashls.setup(default_config)
-lspconfig.cssls.setup(default_config)
-lspconfig.dockerls.setup(default_config)
-lspconfig.html.setup(default_config)
-lspconfig.jsonls.setup(default_config)
-lspconfig.vimls.setup(default_config)
-lspconfig.yamlls.setup(default_config)
-
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-local null_ls = require('null-ls')
-local formatting = null_ls.builtins.formatting
-null_ls.setup {
-    debug = false,
-    sources = {
-        formatting.prettier,
-    },
-    on_attach = function(client, bufnr)
-        if client.supports_method("textDocument/formatting") then
-            vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-            vim.api.nvim_create_autocmd("BufWritePre", {
-                group = augroup,
-                buffer = bufnr,
-                callback = function()
-                    -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-                    vim.lsp.buf.formatting_sync()
-                end,
-            })
-        end
-    end,
+local servers = {
+    'bashls',
+    'cssls',
+    'html',
+    'dockerls',
+    'jsonls',
+    'tsserver',
+    'sumneko_lua',
+    'vimls',
+    'yamlls'
 }
-
 local lsp_installer = require("nvim-lsp-installer")
 lsp_installer.setup {
-    ensure_installed = { 'sumneko_lua' }
+    ensure_installed = servers
 }
 
--- Lua language server
-lspconfig.sumneko_lua.setup(vim.tbl_extend('force', default_config, {
-    settings = {
-        Lua = {
-            runtime = {
-                version = 'LuaJIT',
-                path = vim.split(package.path, ";"),
-            },
-            diagnostics = { globals = { 'vim' } },
-            workspace = { library = vim.api.nvim_get_runtime_file('', true) },
-            telemetry = { enable = false },
-        },
-    },
-}))
+for _, server in pairs(servers) do
+    local has_custom_config, server_custom_config = pcall(require, 'kevin.lsp.settings.' .. server)
+    if has_custom_config then
+        lspconfig[server].setup(vim.tbl_extend('force', default_config, server_custom_config))
+    else
+        lspconfig[server].setup(default_config)
+    end
 
-local function organize_imports()
-    local params = {
-        command = "_typescript.organizeImports",
-        arguments = { vim.api.nvim_buf_get_name(0) },
-        title = ""
-    }
-    vim.lsp.buf.execute_command(params)
 end
-
-lspconfig.tsserver.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    commands = {
-        OrganizeImports = {
-            organize_imports,
-            description = "Organize Imports"
-        }
-    },
-    filetype = { 'typescript', 'typescriptreact', 'typescript.tsx' }
-}
 
 lspconfig.gopls.setup(default_config)

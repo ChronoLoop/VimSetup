@@ -28,16 +28,18 @@ packer.startup(function(use)
     use 'creativenull/efmls-configs-nvim'
     use 'williamboman/nvim-lsp-installer'
 
-    -- Autocompletion and Snippets
-    use { 'hrsh7th/vim-vsnip', requires = {
-        'hrsh7th/vim-vsnip-integ',
-        'rafamadriz/friendly-snippets',
+    -- Autocompletion
+    use { 'hrsh7th/nvim-cmp', requires = {
+        'hrsh7th/cmp-buffer',
+        'hrsh7th/cmp-nvim-lsp',
+        'hrsh7th/cmp-path',
+        'saadparwaiz1/cmp_luasnip',
+        'hrsh7th/cmp-nvim-lua'
     } }
 
-    use { 'hrsh7th/nvim-cmp', requires = {
-        'hrsh7th/cmp-nvim-lsp',
-        'hrsh7th/cmp-vsnip',
-    } }
+    -- Snippets
+    use 'L3MON4D3/LuaSnip'
+    use 'rafamadriz/friendly-snippets'
 
     --Theme/Syntax
     use 'ryanoasis/vim-devicons'
