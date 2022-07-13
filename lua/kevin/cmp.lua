@@ -16,9 +16,6 @@ local check_backspace = function()
     return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
 end
 
-luasnip.filetype_extend('javascript', { 'javascriptreact' })
-luasnip.filetype_extend('typescript', { 'typescriptreact' })
-
 -- Setup nvim-cmp
 cmp.setup {
     snippet = {
