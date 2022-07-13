@@ -1,5 +1,4 @@
--- ====================================================================================
--- Initialize
+-- ==================================================================================== Initialize
 -- ====================================================================================
 vim.g.mapleader = ' '
 
@@ -55,3 +54,13 @@ local success, err = pcall(vim.cmd, colorscheme_cmd)
 if not success then
     vim.api.nvim_err_writeln(err)
 end
+
+local c = require('onedark.colors')
+
+require('onedark').setup {
+    style = 'dark',
+    highlights = {
+        VertSplit = { bg = c.bg_d }
+    }
+}
+require('onedark').load()
