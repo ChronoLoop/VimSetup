@@ -59,6 +59,8 @@ cmp.setup {
             i = cmp.mapping.abort(),
             c = cmp.mapping.close(),
         },
+        ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i' }),
+        ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i' }),
     },
     -- You should specify your *installed* sources.
     sources = {
