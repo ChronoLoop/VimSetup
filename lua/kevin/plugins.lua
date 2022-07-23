@@ -22,6 +22,7 @@ packer.startup(function(use)
     use 'windwp/nvim-ts-autotag'
     use 'airblade/vim-gitgutter'
     use 'jose-elias-alvarez/null-ls.nvim'
+    use { "akinsho/toggleterm.nvim", tag = 'v2.*' }
 
     -- LSP
     use 'neovim/nvim-lspconfig'

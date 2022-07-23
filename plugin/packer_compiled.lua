@@ -204,6 +204,11 @@ _G.packer_plugins = {
     path = "/home/ikevinw/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-lua/telescope.nvim"
   },
+  ["toggleterm.nvim"] = {
+    loaded = true,
+    path = "/home/ikevinw/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
+    url = "https://github.com/akinsho/toggleterm.nvim"
+  },
   ["vim-commentary"] = {
     loaded = true,
     path = "/home/ikevinw/.local/share/nvim/site/pack/packer/start/vim-commentary",
