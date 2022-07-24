@@ -48,6 +48,8 @@ local function on_attach(client, bufnr)
     lsp_map('n', 'gy', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
     lsp_map('n', '<leader>le', '<cmd>lua vim.diagnostic.setloclist()<CR>')
     lsp_map('n', '<leader>p', '<cmd>lua vim.lsp.buf.formatting()<CR>')
+    lsp_map('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
+    lsp_map('n', ']d', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
 
     -- Replacement for lspsaga
     lsp_map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
