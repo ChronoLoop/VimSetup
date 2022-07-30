@@ -31,10 +31,12 @@ cmp.setup {
             function(fallback)
                 if cmp.visible() then
                     cmp.select_next_item()
-                elseif luasnip.expandable() then
-                    luasnip.expand()
+                elseif luasnip.jumpable(1) then
+                    luasnip.jump(1)
                 elseif luasnip.expand_or_jumpable() then
                     luasnip.expand_or_jump()
+                elseif luasnip.expandable() then
+                    luasnip.expand()
                 elseif check_backspace() then
                     fallback()
                 else
@@ -42,6 +44,7 @@ cmp.setup {
                 end
             end, {
             "i",
+            "s"
         }),
         ['<S-Tab>'] = cmp.mapping(
             function(fallback)
@@ -59,8 +62,8 @@ cmp.setup {
             i = cmp.mapping.abort(),
             c = cmp.mapping.close(),
         },
-        ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i' }),
-        ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i' }),
+        ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+        ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
     },
     -- You should specify your *installed* sources.
     sources = {
