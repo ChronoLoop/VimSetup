@@ -23,6 +23,7 @@ packer.startup(function(use)
     use 'airblade/vim-gitgutter'
     use 'jose-elias-alvarez/null-ls.nvim'
     use { "akinsho/toggleterm.nvim", tag = 'v2.*' }
+    use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
     -- LSP
     use 'neovim/nvim-lspconfig'

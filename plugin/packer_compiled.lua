@@ -99,6 +99,11 @@ _G.packer_plugins = {
     path = "/home/ikevinw/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["diffview.nvim"] = {
+    loaded = true,
+    path = "/home/ikevinw/.local/share/nvim/site/pack/packer/start/diffview.nvim",
+    url = "https://github.com/sindrets/diffview.nvim"
+  },
   ["efmls-configs-nvim"] = {
     loaded = true,
     path = "/home/ikevinw/.local/share/nvim/site/pack/packer/start/efmls-configs-nvim",
