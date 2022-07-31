@@ -95,6 +95,13 @@ local default_config = {
     capabilities = capabilities,
 }
 
+local function config(_config)
+    return vim.tbl_deep_extend("force", {
+        on_attach = on_attach,
+        capabilities = capabilities,
+    }, _config or {})
+end
+
 local servers = {
     'bashls',
     'cssls',
@@ -114,11 +121,20 @@ lsp_installer.setup {
 for _, server in pairs(servers) do
     local has_custom_config, server_custom_config = pcall(require, 'kevin.lsp.settings.' .. server)
     if has_custom_config then
-        lspconfig[server].setup(vim.tbl_extend('force', default_config, server_custom_config))
+        lspconfig[server].setup(config(server_custom_config))
     else
         lspconfig[server].setup(default_config)
     end
 
 end
 
-lspconfig.gopls.setup(default_config)
+lspconfig.gopls.setup(config(
+    {
+        cmd = { "gopls", "serve" },
+        settings = {
+            gopls = {
+                staticcheck = true,
+            },
+        },
+    }
+))
