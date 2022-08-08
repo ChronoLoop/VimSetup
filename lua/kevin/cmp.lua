@@ -11,11 +11,6 @@ end
 
 require("luasnip/loaders/from_vscode").lazy_load()
 
-local check_backspace = function()
-    local col = vim.fn.col "." - 1
-    return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
-end
-
 -- Setup nvim-cmp
 cmp.setup {
     snippet = {
@@ -27,37 +22,8 @@ cmp.setup {
     mapping = {
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<CR>'] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
-        ['<Tab>'] = cmp.mapping(
-            function(fallback)
-                if cmp.visible() then
-                    cmp.select_next_item()
-                elseif luasnip.jumpable(1) then
-                    luasnip.jump(1)
-                elseif luasnip.expand_or_jumpable() then
-                    luasnip.expand_or_jump()
-                elseif luasnip.expandable() then
-                    luasnip.expand()
-                elseif check_backspace() then
-                    fallback()
-                else
-                    fallback()
-                end
-            end, {
-            "i",
-            "s"
-        }),
-        ['<S-Tab>'] = cmp.mapping(
-            function(fallback)
-                if cmp.visible() then
-                    cmp.select_prev_item()
-                elseif luasnip.jumpable(-1) then
-                    luasnip.jump(-1)
-                else
-                    fallback()
-                end
-            end, {
-            "i"
-        }),
+        ['<Tab>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i' }),
+        ['<S-Tab>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i' }),
         ['<C-e>'] = cmp.mapping {
             i = cmp.mapping.abort(),
             c = cmp.mapping.close(),
