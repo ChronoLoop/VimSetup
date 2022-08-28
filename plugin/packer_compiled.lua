@@ -104,11 +104,6 @@ _G.packer_plugins = {
     path = "/home/ikevinw/.local/share/nvim/site/pack/packer/start/diffview.nvim",
     url = "https://github.com/sindrets/diffview.nvim"
   },
-  ["efmls-configs-nvim"] = {
-    loaded = true,
-    path = "/home/ikevinw/.local/share/nvim/site/pack/packer/start/efmls-configs-nvim",
-    url = "https://github.com/creativenull/efmls-configs-nvim"
-  },
   ["emmet-vim"] = {
     loaded = true,
     path = "/home/ikevinw/.local/share/nvim/site/pack/packer/start/emmet-vim",
