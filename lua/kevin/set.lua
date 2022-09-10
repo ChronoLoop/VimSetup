@@ -25,6 +25,7 @@ vim.opt.backup = false
 vim.opt.updatetime = 300
 vim.opt.wrap = false
 
+-- https://github.com/neovim/neovim/wiki/FAQ#how-to-use-the-windows-clipboard-from-wsl
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.mouse = 'a'
 

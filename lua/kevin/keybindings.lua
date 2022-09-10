@@ -1,10 +1,6 @@
 local keymap = require('kevin.keymap')
-local vnoremap = keymap.vnoremap
 local inoremap = keymap.inoremap
 local nnoremap = keymap.nnoremap
-
--- Copy to system clipboard (this is for WSL)
-vnoremap('<C-y>', ':w !clip.exe<CR><CR>')
 
 nnoremap('<C-p>', ':Telescope find_files<CR>')
 
