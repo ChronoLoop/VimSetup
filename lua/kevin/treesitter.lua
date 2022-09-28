@@ -14,9 +14,6 @@ require 'nvim-treesitter.configs'.setup {
         'go'
     },
     highlight = { enable = true },
-    autotag = {
-        enable = true,
-    },
     autopairs = {
         enable = true,
     },
