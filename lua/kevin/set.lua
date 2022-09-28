@@ -59,7 +59,7 @@ end
 local c = require('onedark.colors')
 
 require('onedark').setup {
-    style = 'dark',
+    style = 'darker',
     highlights = {
         VertSplit = { bg = c.bg_d }
     }
