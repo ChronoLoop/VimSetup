@@ -19,6 +19,7 @@ packer.startup(function(use)
     use { 'akinsho/nvim-bufferline.lua', requires = 'kyazdani42/nvim-web-devicons' }
     use 'mattn/emmet-vim'
     use 'windwp/nvim-autopairs'
+    use 'windwp/nvim-ts-autotag'
     use 'airblade/vim-gitgutter'
     use 'jose-elias-alvarez/null-ls.nvim'
     use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
