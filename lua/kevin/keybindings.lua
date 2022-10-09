@@ -3,6 +3,7 @@ local inoremap = keymap.inoremap
 local nnoremap = keymap.nnoremap
 
 nnoremap('<C-p>', ':Telescope find_files<CR>')
+nnoremap('<leader>lg', ':Telescope live_grep<CR>')
 
 nnoremap('<C-S><C-S>', ':set invrelativenumber<CR>')
 nnoremap('<C-s>', ':w<CR>')

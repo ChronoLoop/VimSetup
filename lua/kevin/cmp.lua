@@ -58,7 +58,10 @@ cmp.setup {
         },
         ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
         ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-        ['<Esc>'] = cmp.mapping.close()
+        ['<Esc>'] = cmp.mapping(function(fallback)
+            fallback()
+        end
+        ),
     },
     -- You should specify your *installed* sources.
     sources = {
