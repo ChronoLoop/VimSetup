@@ -67,7 +67,7 @@ local function on_attach(client, bufnr)
     if client.name == 'tsserver'
         or client.name == 'jsonls' or client.name == 'html'
     then
-        client.resolved_capabilities.document_formatting = false
+        client.server_capabilities.document_formatting = false
     end
 
     if client.name == 'gopls' then
