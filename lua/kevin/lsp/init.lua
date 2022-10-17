@@ -87,7 +87,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 -- in case you uninstall nvim-cmp
 local success_cmp_lsp = pcall(require, 'cmp_nvim_lsp')
 if success_cmp_lsp then
-    capabilities = require 'cmp_nvim_lsp'.update_capabilities(vim.lsp.protocol.make_client_capabilities())
+    capabilities = require 'cmp_nvim_lsp'.default_capabilities(vim.lsp.protocol.make_client_capabilities())
 end
 
 local default_config = {
