@@ -45,6 +45,7 @@ packer.startup(function(use)
     use 'ryanoasis/vim-devicons'
     use 'kyazdani42/nvim-web-devicons'
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+    use 'nvim-treesitter/nvim-treesitter-context'
     use 'navarasu/onedark.nvim'
     use { 'hoob3rt/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
     use 'lukas-reineke/indent-blankline.nvim'
