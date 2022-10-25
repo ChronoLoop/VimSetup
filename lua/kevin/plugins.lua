@@ -20,7 +20,7 @@ packer.startup(function(use)
     use 'mattn/emmet-vim'
     use 'windwp/nvim-autopairs'
     use 'windwp/nvim-ts-autotag'
-    use 'airblade/vim-gitgutter'
+    use { 'lewis6991/gitsigns.nvim' }
     use 'jose-elias-alvarez/null-ls.nvim'
     use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
