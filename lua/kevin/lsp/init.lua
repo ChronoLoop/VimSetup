@@ -36,8 +36,42 @@ local function lsp_map(mode, left_side, right_side)
     vim.api.nvim_buf_set_keymap(vim.api.nvim_get_current_buf(), mode, left_side, right_side, { noremap = true })
 end
 
+-- if you want to set up formatting on save, you can use this as a callback
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
+local lsp_formatting = function(bufnr)
+    vim.lsp.buf.format({
+        filter = function(client)
+            -- disable formatting from tsserver, html, jsonls
+            if client.name == 'tsserver'
+                or client.name == 'jsonls' or client.name == 'html'
+            then
+                return false
+            end
+
+            if client.name == 'gopls' then
+                vim.opt_local.expandtab = false
+            end
+            return true
+
+        end,
+        bufnr = bufnr,
+    })
+end
+
 local function on_attach(client, bufnr)
     print('Attaching to ' .. client.name)
+
+    if client.supports_method("textDocument/formatting") then
+        vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            group = augroup,
+            buffer = bufnr,
+            callback = function()
+                lsp_formatting(bufnr)
+            end,
+        })
+    end
 
     lsp_map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
     lsp_map('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
@@ -47,7 +81,6 @@ local function on_attach(client, bufnr)
     lsp_map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
     lsp_map('n', 'gy', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
     lsp_map('n', '<leader>le', '<cmd>lua vim.diagnostic.setloclist()<CR>')
-    lsp_map('n', '<leader>p', '<cmd>lua vim.lsp.buf.formatting()<CR>')
     lsp_map('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
     lsp_map('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>')
 
@@ -63,23 +96,9 @@ local function on_attach(client, bufnr)
         '<leader>ls',
         string.format('<cmd>lua vim.diagnostic.open_float(%d, %s)<CR>', bufnr, diag_opts)
     )
-    -- disable formatting from tsserver
-    if client.name == 'tsserver'
-        or client.name == 'jsonls' or client.name == 'html'
-    then
-        client.server_capabilities.document_formatting = false
-    end
 
-    if client.name == 'gopls' then
-        vim.opt_local.expandtab = false
-    end
+
 end
-
-vim.api.nvim_create_autocmd("BufWritePre", {
-    callback = function()
-        vim.lsp.buf.format()
-    end,
-})
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
