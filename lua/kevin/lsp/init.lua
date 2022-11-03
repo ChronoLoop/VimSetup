@@ -32,8 +32,9 @@ if success_lsputils then
     end
 end
 
-local function lsp_map(mode, left_side, right_side)
-    vim.api.nvim_buf_set_keymap(vim.api.nvim_get_current_buf(), mode, left_side, right_side, { noremap = true })
+local function lsp_map(mode, left_side, right_side, opts)
+    opts = opts or { noremap = true }
+    vim.api.nvim_buf_set_keymap(vim.api.nvim_get_current_buf(), mode, left_side, right_side, opts)
 end
 
 -- if you want to set up formatting on save, you can use this as a callback
@@ -83,6 +84,12 @@ local function on_attach(client, bufnr)
     lsp_map('n', '<leader>le', '<cmd>lua vim.diagnostic.setloclist()<CR>')
     lsp_map('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
     lsp_map('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>')
+    lsp_map('n', '<leader>p', '', {
+        noremap = true,
+        callback = function()
+            lsp_formatting(bufnr)
+        end
+    })
 
     -- Replacement for lspsaga
     lsp_map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
